@@ -1,6 +1,6 @@
 'use strict';
 
-let donnees = { choix: [] };
+let donnees = { choix: [], qoe: [] };
 let videos = ["V1Q1", "V1Q2", "V1Q3", "V2Q1", "V2Q2", "V2Q3", "V3Q1", "V3Q2", "V3Q3"]
 let order
 let video_to_play
@@ -44,20 +44,33 @@ function load_video_extract() {
 function load_video_full() {
     let chosen_q = retrieve_data()
     hide_everything()
-    video_to_play = video_to_play.substring(0, 2) + chosen_q + "full"
+    video_to_play = `${video_to_play.substring(0, 2) + chosen_q}full`
     if (video_to_play) {
-        let html_video = document.querySelector("video")
-        html_video.innerHTML = " <source src=\"videos\\" + video_to_play + "\" type=\"video/mp4\"> \n Désolé, votre navigateur ne supporte pas le lecteur vidéo"
+        let html_video = document.querySelector("video_full")
+        //TODO : uncomment this line when videos sources are ready
+        //html_video.innerHTML = `<source src=\"videos\\${convert_video_to_play_to_digit(video_to_play)}\" type=\"video/mp4\"> \n Désolé, votre navigateur ne supporte pas le lecteur vidéo`
         document.getElementById("video_full").style.display = "block"
     } else {
         load_talon()
     }
 }
 
+function load_qoe() {
+    hide_everything()
+    document.getElementById("qoe").style.display = 'block'
+    let res = document.querySelector('input[name="qoe"]:checked').value;
+    donnees.qoe.push(res)
+    document.querySelectorAll('input[name="qoe"]').forEach(input => input.checked = false)
+}
+
 function load_interface() {
-    let interface_to_display = (order.video_IA_order.length > 0) ? order.interface[0] : order.interface[1]
+    let interface_to_display
+    if (order.video_IA_order.length > 0 || (order.video_IA_order.length === 0 && order.video_IB_order.length === 5)) {
+        interface_to_display = order.interface[0]
+    } else {
+        interface_to_display = order.interface[1]
+    }
     let played_quality = video_to_play.substr(video_to_play.length - 1, 1)
-    console.log(played_quality)
     hide_everything()
     switch (interface_to_display) {
         case 1:
@@ -98,6 +111,23 @@ function load_interface() {
     }
 }
 
+function convert_video_to_play_to_digit(video_to_play) {
+    switch (video_to_play) {
+        case "1080_pur":
+        case "1080_ecolo":
+            return 1
+        case "720_pur":
+        case "720_ecolo":
+            return 2
+        case "576_pur":
+        case "576_ecolo":
+            return 1;
+        default:
+            break;
+    }
+
+}
+
 function load_consignes() {
     hide_everything()
     document.getElementById("consignes").style.display = "block"
@@ -126,11 +156,10 @@ function load_interstice() {
     } else {
         load_talon()
     }
-
 }
 
 function start_timer() {
-    const departMinutes = 1
+    const departMinutes = .2 //plutôt 5 à 10 minutes
     let temps = departMinutes * 60
 
     const timerElement = document.getElementById("timer")
@@ -147,7 +176,7 @@ function start_timer() {
 
     setTimeout(() => {
         document.getElementById("suivant_pause").disabled = false
-    }, temps*1000)
+    }, temps * 1000)
 
 }
 function hide_everything() {
@@ -159,7 +188,7 @@ async function send(data) {
     //chopper infos questionnaire d'abord
     await putToAPI("http://localhost:3000/save_data", data)
     hide_everything()
-    document.querySelector("body").innerHTML="<h1>Merci !</h1>"
+    document.querySelector("body").innerHTML = "<h1>Merci !</h1>"
 }
 
 async function putToAPI(url, json_data) {
@@ -205,11 +234,12 @@ async function run() {
 
 document.getElementById("suivant_consignes").addEventListener('click', () => load_interstice());
 document.getElementById("suivant_video_extrait").addEventListener('click', () => load_interface())
-document.getElementById("suivant_video_full").addEventListener('click', () => load_interstice())
+document.getElementById("suivant_video_full").addEventListener('click', () => load_qoe())
 document.getElementById("suivant_interstice").addEventListener('click', () => load_video_extract())
 document.getElementById("fin_questionnaire").addEventListener('click', () => send(donnees))
 document.getElementById("suivant_qualite_ecolo").addEventListener('click', () => load_video_full())
 document.getElementById("suivant_qualite_pure").addEventListener('click', () => load_video_full())
 document.getElementById("suivant_pause").addEventListener('click', () => load_video_extract())
+document.getElementById("suivant_jugement_qualite").addEventListener('click', () => load_interstice())
 
 run()

@@ -25,7 +25,7 @@
     <section id="talon_socio">
         <!-- Section Talon sociologique-->
         <h1>A propos de vous</h1>
-        <form id="form_age">
+        <form id="form_age" class="ask">
             <label for="age_select">Classe d'âge</label>
             <select name="age" id="age_select">
                 <option value="">--Please choose an option--</option>
@@ -34,7 +34,7 @@
                 <option value="21-30">entre 21 et 30 ans</option>
                 <option value="31-40">Entre 31 et 40 ans</option>
                 <option value="41-50">Entre 41 et 50 ans</option>
-                <option value="51-60">Etnre 51 et 60 ans</option>
+                <option value="51-60">Entre 51 et 60 ans</option>
                 <option value="61-70">Entre 61 et 70 ans</option>
                 <option value="plus de 70">Plus de 70 ans</option>
             </select>
@@ -77,9 +77,23 @@
         <button id="suivant_interstice">SUIVANT</button>
     </section>
 
+    <section id="qoe">
+        <h1>Comment jugez vous la qualité ?</h1>
+        <ul class="likert">
+            <li>Très mauvaise</li>
+            <li><input type="radio" name="qoe" value="1" /></li>
+            <li><input type="radio" name="qoe" value="2" /></li>
+            <li><input type="radio" name="qoe" value="3" /></li>
+            <li><input type="radio" name="qoe" value="4" /></li>
+            <li><input type="radio" name="qoe" value="5" /></li>
+            <li>Excellente</li>
+        </ul>
+        <button id="suivant_jugement_qualite">SUIVANT</button>
+    </section>
+
     <section id="choix_pur">
         <!-- Section choix qualite -->
-        <h3>Choix de qualité</h3>
+        <h1>Choix de qualité</h1>
         <form id="form_choix_qualite_pur" class="choix_qualite">
             <article>
                 <input type="radio" id="1080_pur" name="quali" value="1080_pur">
@@ -98,30 +112,32 @@
     </section>
 
     <section id="pause">
-        <h3>Il est temps de prendre une pause</h3>
+        <h1>Il est temps de prendre une pause</h1>
         <p id='timer'></p>
         <button id="suivant_pause" disabled>Vidéo 5</button>
-
     </section>
 
     <section id="choix_ecolo">
         <!-- Section choix qualite -->
-        <h3>Choix de qualité</h3>
+        <h1>Choix de qualité</h1>
         <form id="form_choix_qualite_ecolo" class="choix_qualite">
             <article>
                 <input type="radio" id="1080_ecolo" name="quali" value="1080_ecolo">
-                <label for="1080_ecolo">1080p. 43 à 52gr équivalent en CO2 par heure de vidéo</label>
+                <label for="1080_ecolo"><b>1080p.</b> 43 à 52gr équivalent en CO2 par heure de vidéo</label>
             </article>
             <article>
                 <input type="radio" id="720_ecolo" name="quali" value="720_ecolo">
-                <label for="720_ecolo">720p. Recommandé pour un PC ou un mac. 35% d'économie de CO2 vs 1080p</label>
+                <label for="720_ecolo"><b>720p.</b> Recommandé pour un PC ou un mac. 35% d'économie de CO2 vs
+                    1080p</label>
             </article>
             <article>
                 <input type="radio" id="576_ecolo" name="quali" value="576_ecolo">
-                <label for="576_ecolo">576p. Recommandé pour un smartphone en mobilité. 70% d'économie de CO2 vs 1080p</label>
+                <label for="576_ecolo"><b>576p.</b> Recommandé pour un smartphone en mobilité. 70% d'économie de CO2 vs
+                    1080p</label>
             </article>
+            <p id="ecolo">Le choix d'une qualité adaptée contribue à réduire notre empreinte carbone</p>
+
         </form>
-        <p id="ecolo">Le choix d'une qualité adaptée contribue à réduire notre empreinte carbone</p>
         <button id="suivant_qualite_ecolo">SUIVANT</button>
     </section>
 
