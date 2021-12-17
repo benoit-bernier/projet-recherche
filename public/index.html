@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Expérimentation</title>
+    <meta charset="utf-8" lang="fr">
+    <link href="style.css" rel="stylesheet">
+    <script type="text/javascript" src="script.js" defer></script>
+</head>
+
+<body>
+    <section id="consignes">
+        <h1>Consignes</h1>
+        <p>Adipisicing officia irure in eiusmod dolor ad nostrud exercitation officia. Esse irure adipisicing quis et
+            fugiat. Ipsum culpa dolore fugiat pariatur eiusmod. Aliqua adipisicing ipsum fugiat exercitation laboris.
+            Commodo reprehenderit sint ex non sunt anim exercitation eiusmod et dolore culpa id aute adipisicing.
+            Occaecat in dolore duis sit qui sunt. Consectetur cillum ullamco reprehenderit consequat sit laborum
+            reprehenderit veniam.</p>
+        <p>Ut labore dolore nulla in proident amet ipsum duis tempor. Culpa nulla pariatur esse sunt sunt est deserunt
+            veniam voluptate incididunt irure eiusmod consectetur elit. Aliquip duis consequat laboris ex adipisicing
+            nostrud ea excepteur do non occaecat nulla. Cillum et veniam aliqua dolore elit esse culpa. Lorem enim ipsum
+            deserunt qui sit quis aute aute do nulla incididunt anim occaecat.</p>
+        <button id="suivant_consignes">SUIVANT</button>
+
+    </section>
+    <section id="talon_socio">
+        <!-- Section Talon sociologique-->
+        <h1>A propos de vous</h1>
+        <form id="form_age">
+            <label for="age_select">Classe d'âge</label>
+            <select name="age" id="age_select">
+                <option value="">--Please choose an option--</option>
+                <option value="11-15">Entre 11 et 15 ans</option>
+                <option value="16-20">Entre 16 et 20 ans</option>
+                <option value="21-30">entre 21 et 30 ans</option>
+                <option value="31-40">Entre 31 et 40 ans</option>
+                <option value="41-50">Entre 41 et 50 ans</option>
+                <option value="51-60">Etnre 51 et 60 ans</option>
+                <option value="61-70">Entre 61 et 70 ans</option>
+                <option value="plus de 70">Plus de 70 ans</option>
+            </select>
+            <ul class="likert">
+                <li> Not Guilty </li>
+                <li><input type="radio" name="guilty" value="1" /></li>
+                <li><input type="radio" name="guilty" value="2" /></li>
+                <li><input type="radio" name="guilty" value="3" /></li>
+                <li><input type="radio" name="guilty" value="4" /></li>
+                <li><input type="radio" name="guilty" value="5" /></li>
+                <li> Very Guilty </li>
+            </ul>
+        </form>
+        <button id="fin_questionnaire">ENVOYER</button>
+    </section>
+
+    <section id="video_extrait">
+        <center>
+            <video controls width="70%">
+                <source src="videos\MOURIR PEUT ATTENDRE.mp4" type="video/mp4">
+                Désolé, votre navigateur ne supporte pas le lecteur vidéo
+            </video>
+        </center>
+        <button id="suivant_video_extrait">SUIVANT</button>
+
+    </section>
+
+    <section id="video_full">
+        <center>
+            <video controls width="70%">
+                <source src="videos\MOURIR PEUT ATTENDRE.mp4" type="video/mp4">
+                Désolé, votre navigateur ne supporte pas le lecteur vidéo
+            </video>
+        </center>
+        <button id="suivant_video_full">SUIVANT</button>
+    </section>
+
+    <section id="interstice">
+        <h1></h1>
+        <button id="suivant_interstice">SUIVANT</button>
+    </section>
+
+    <section id="choix_pur">
+        <!-- Section choix qualite -->
+        <h3>Choix de qualité</h3>
+        <form id="form_choix_qualite_pur" class="choix_qualite">
+            <article>
+                <input type="radio" id="1080_pur" name="quali" value="1080_pur">
+                <label for="1080_pur">1080p</label>
+            </article>
+            <article>
+                <input type="radio" id="720_pur" name="quali" value="720_pur">
+                <label for="720_pur">720p</label>
+            </article>
+            <article>
+                <input type="radio" id="576_pur" name="quali" value="576_pur">
+                <label for="576_pur">576p</label>
+            </article>
+        </form>
+        <button id="suivant_qualite_pure">SUIVANT</button>
+    </section>
+
+    <section id="pause">
+        <h3>Il est temps de prendre une pause</h3>
+        <p id='timer'></p>
+        <button id="suivant_pause" disabled>Vidéo 5</button>
+
+    </section>
+
+    <section id="choix_ecolo">
+        <!-- Section choix qualite -->
+        <h3>Choix de qualité</h3>
+        <form id="form_choix_qualite_ecolo" class="choix_qualite">
+            <article>
+                <input type="radio" id="1080_ecolo" name="quali" value="1080_ecolo">
+                <label for="1080_ecolo">1080p. 43 à 52gr équivalent en CO2 par heure de vidéo</label>
+            </article>
+            <article>
+                <input type="radio" id="720_ecolo" name="quali" value="720_ecolo">
+                <label for="720_ecolo">720p. Recommandé pour un PC ou un mac. 35% d'économie de CO2 vs 1080p</label>
+            </article>
+            <article>
+                <input type="radio" id="576_ecolo" name="quali" value="576_ecolo">
+                <label for="576_ecolo">576p. Recommandé pour un smartphone en mobilité. 70% d'économie de CO2 vs 1080p</label>
+            </article>
+        </form>
+        <p id="ecolo">Le choix d'une qualité adaptée contribue à réduire notre empreinte carbone</p>
+        <button id="suivant_qualite_ecolo">SUIVANT</button>
+    </section>
+
+
+</body>
