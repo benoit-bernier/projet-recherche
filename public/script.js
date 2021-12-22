@@ -33,8 +33,8 @@ function load_video_extract() {
         video_to_play = order.video_IB_order.shift()
     }
     if (video_to_play) {
-        let html_video = document.querySelector("video")
-        html_video.innerHTML = " <source src=\"videos\\" + video_to_play + "\" type=\"video/mp4\"> \n Désolé, votre navigateur ne supporte pas le lecteur vidéo"
+        let html_video = document.getElementById("video_extrait_display")
+        html_video.innerHTML = ` <source src=\"videos\\${video_to_play + "_extract.mp4"}\" type=\"video/mp4\"> \n Désolé, votre navigateur ne supporte pas le lecteur vidéo`
         document.getElementById("video_extrait").style.display = "block"
     } else {
         load_talon()
@@ -44,11 +44,10 @@ function load_video_extract() {
 function load_video_full() {
     let chosen_q = retrieve_data()
     hide_everything()
-    video_to_play = `${video_to_play.substring(0, 2) + chosen_q}full`
+    video_to_play = `${video_to_play.substring(0, 3) + convert_video_to_play_to_digit(chosen_q)}`
     if (video_to_play) {
-        let html_video = document.querySelector("video_full")
-        //TODO : uncomment this line when videos sources are ready
-        //html_video.innerHTML = `<source src=\"videos\\${convert_video_to_play_to_digit(video_to_play)}\" type=\"video/mp4\"> \n Désolé, votre navigateur ne supporte pas le lecteur vidéo`
+        let html_video = document.getElementById("video_full_display")
+        html_video.innerHTML = `<source src=\"videos\\${video_to_play + ".mp4"}\" type=\"video/mp4\"> \n Désolé, votre navigateur ne supporte pas le lecteur vidéo`
         document.getElementById("video_full").style.display = "block"
     } else {
         load_talon()
@@ -58,9 +57,6 @@ function load_video_full() {
 function load_qoe() {
     hide_everything()
     document.getElementById("qoe").style.display = 'block'
-    let res = document.querySelector('input[name="qoe"]:checked').value;
-    donnees.qoe.push(res)
-    document.querySelectorAll('input[name="qoe"]').forEach(input => input.checked = false)
 }
 
 function load_interface() {
@@ -121,7 +117,7 @@ function convert_video_to_play_to_digit(video_to_play) {
             return 2
         case "576_pur":
         case "576_ecolo":
-            return 1;
+            return 3;
         default:
             break;
     }
@@ -147,6 +143,7 @@ function retrieve_data() {
 
 function load_interstice() {
     hide_everything()
+
     if (order.video_IA_order.length === 0 && order.video_IB_order.length === 5) {
         document.getElementById("pause").style.display = "block"
         start_timer()
@@ -156,6 +153,13 @@ function load_interstice() {
     } else {
         load_talon()
     }
+}
+
+function suivant_qoe() {
+    let res = document.querySelector('input[name="qoe"]:checked').value;
+    donnees.qoe.push(res)
+    document.querySelectorAll('input[name="qoe"]').forEach(input => input.checked = false)
+    load_interstice()
 }
 
 function start_timer() {
@@ -176,7 +180,7 @@ function start_timer() {
 
     setTimeout(() => {
         document.getElementById("suivant_pause").disabled = false
-    }, temps * 1000)
+    }, temps * 1000 + 1000)
 
 }
 function hide_everything() {
@@ -240,6 +244,6 @@ document.getElementById("fin_questionnaire").addEventListener('click', () => sen
 document.getElementById("suivant_qualite_ecolo").addEventListener('click', () => load_video_full())
 document.getElementById("suivant_qualite_pure").addEventListener('click', () => load_video_full())
 document.getElementById("suivant_pause").addEventListener('click', () => load_video_extract())
-document.getElementById("suivant_jugement_qualite").addEventListener('click', () => load_interstice())
+document.getElementById("suivant_jugement_qualite").addEventListener('click', () => suivant_qoe())
 
 run()

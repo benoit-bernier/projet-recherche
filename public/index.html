@@ -10,15 +10,19 @@
 <body>
     <section id="consignes">
         <h1>Consignes</h1>
-        <p>Adipisicing officia irure in eiusmod dolor ad nostrud exercitation officia. Esse irure adipisicing quis et
-            fugiat. Ipsum culpa dolore fugiat pariatur eiusmod. Aliqua adipisicing ipsum fugiat exercitation laboris.
-            Commodo reprehenderit sint ex non sunt anim exercitation eiusmod et dolore culpa id aute adipisicing.
-            Occaecat in dolore duis sit qui sunt. Consectetur cillum ullamco reprehenderit consequat sit laborum
-            reprehenderit veniam.</p>
-        <p>Ut labore dolore nulla in proident amet ipsum duis tempor. Culpa nulla pariatur esse sunt sunt est deserunt
-            veniam voluptate incididunt irure eiusmod consectetur elit. Aliquip duis consequat laboris ex adipisicing
-            nostrud ea excepteur do non occaecat nulla. Cillum et veniam aliqua dolore elit esse culpa. Lorem enim ipsum
-            deserunt qui sit quis aute aute do nulla incididunt anim occaecat.</p>
+        <p>Dans le cadre de mon projet recherche, je mène une expérimentation qui vise à comprendre les comportements de
+            choix de qualité vidéo.</p>
+        <p>Plusieurs courts extraits (3 secondes) de vidéos, dans des qualités différentes, vous seront présentés. Pour
+            chacun d'entre eux, il vous sera demandé d'effectuer un choix de qualité : si vous deviez regarder cette
+            vidéo pendant plus longtemps, quelle qualité choisiriez-vous ?</p>
+        <p>Pour chaque vidéo affichée, merci de l'afficher en plein écran avant de lancer la lecture.</p>
+        <p>Après ce choix, la vidéo sera affichée avec la qualité choisie. Il vous sera alors demandé de noter celle-ci
+            avec une note de 1 à 5.</p>
+        <p>9 extraits vous seront montrés. Après les 5 premiers, il vous sera proposé de prendre une pause de 5 minutes.
+        </p>
+        <p>Enfin, quelques questions vous seront posées.</p>
+        <p>La durée totale de cette expérimentation est d'environ 15 minutes.</p>
+        <p>Êtes-vous prêt ?</p>
         <button id="suivant_consignes">SUIVANT</button>
 
     </section>
@@ -53,9 +57,7 @@
 
     <section id="video_extrait">
         <center>
-            <video controls width="70%">
-                <source src="D:\expe\IRCCyN_IVC_H264_HD_vs_Upscaling_Interlacing\Videos\src01_hrc01.avi" type="video/avi">
-                Désolé, votre navigateur ne supporte pas le lecteur vidéo
+            <video id="video_extrait_display" controls width="70%">
             </video>
         </center>
         <button id="suivant_video_extrait">SUIVANT</button>
@@ -64,9 +66,7 @@
 
     <section id="video_full">
         <center>
-            <video controls width="70%">
-                <source src="D:\expe\IRCCyN_IVC_H264_HD_vs_Upscaling_Interlacing\Videos\src01_hrc01.avi" type="video/avi">
-                Désolé, votre navigateur ne supporte pas le lecteur vidéo
+            <video id="video_full_display" controls width="70%">
             </video>
         </center>
         <button id="suivant_video_full">SUIVANT</button>
