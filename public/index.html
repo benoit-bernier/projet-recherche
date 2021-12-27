@@ -29,28 +29,103 @@
     <section id="talon_socio">
         <!-- Section Talon sociologique-->
         <h1>A propos de vous</h1>
-        <form id="form_age" class="ask">
-            <label for="age_select">Classe d'âge</label>
-            <select name="age" id="age_select">
-                <option value="">--Please choose an option--</option>
-                <option value="11-15">Entre 11 et 15 ans</option>
-                <option value="16-20">Entre 16 et 20 ans</option>
-                <option value="21-30">entre 21 et 30 ans</option>
-                <option value="31-40">Entre 31 et 40 ans</option>
-                <option value="41-50">Entre 41 et 50 ans</option>
-                <option value="51-60">Entre 51 et 60 ans</option>
-                <option value="61-70">Entre 61 et 70 ans</option>
-                <option value="plus de 70">Plus de 70 ans</option>
-            </select>
-            <ul class="likert">
-                <li> Not Guilty </li>
-                <li><input type="radio" name="guilty" value="1" /></li>
-                <li><input type="radio" name="guilty" value="2" /></li>
-                <li><input type="radio" name="guilty" value="3" /></li>
-                <li><input type="radio" name="guilty" value="4" /></li>
-                <li><input type="radio" name="guilty" value="5" /></li>
-                <li> Very Guilty </li>
-            </ul>
+        <form id="form_talon" class="ask">
+            <article><label for="birth">Année de naissance</label>
+                <input type="number" id="birth" name="birth" min="1900" max="2015">
+            </article>
+            <article>
+                <label for="genre">Genre</label>
+                <select id="genre" name="genre">
+                    <option value="homme">Homme</option>
+                    <option value="femme">Femme</option>
+                    <option value="autre">Autre</option>
+                </select>
+            </article>
+            <article>
+                <p>Mon état de connaissance des systèmes de diffusion de vidéo par internet :</p>
+                <ul class="likert" id="connaissances_video">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>Connaissances nulles</td>
+                                <td>Faibles connaissances</td>
+                                <td>Connaissances partielles</td>
+                                <td>Connaissances avancées</td>
+                                <td>Expert</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="radio" name="connaissances_video" value="1" />
+                                </td>
+                                <td>
+                                    <input type="radio" name="connaissances_video" value="2" />
+                                </td>
+                                <td>
+                                    <input type="radio" name="connaissances_video" value="3" />
+                                </td>
+                                <td>
+                                    <input type="radio" name="connaissances_video" value="4" />
+                                </td>
+                                <td>
+                                    <input type="radio" name="connaissances_video" value="5" />
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </ul>
+                </br>
+            </article>
+            <article>
+                <p>Mes connaissances à propos de l'impact du numérique sur l'environnement :</p>
+                <ul>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>Connaissances nulles</td>
+                                <td>Faibles connaissances</td>
+                                <td>Connaissances partielles</td>
+                                <td>Connaissances avancées</td>
+                                <td>Expert</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="radio" name="num_envt" value="1" />
+                                </td>
+                                <td>
+                                    <input type="radio" name="num_envt" value="2" />
+                                </td>
+                                <td>
+                                    <input type="radio" name="num_envt" value="3" />
+                                </td>
+                                <td>
+                                    <input type="radio" name="num_envt" value="4" />
+                                </td>
+                                <td>
+                                    <input type="radio" name="num_envt" value="5" />
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </ul>
+                </br>
+            </article>
+
+            <article>
+                <p>Quelle figure décrit le mieux votre relation à l'environnement ?</p>
+                </br>
+                <img src="images/INS-scale.png">
+                <div><label for="ins">Figure</label>
+                    <select id="ins" name="genre">
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <option value="C">C</option>
+                        <option value="D">D</option>
+                        <option value="E">E</option>
+                        <option value="F">F</option>
+                        <option value="G">G</option>
+                    </select>
+                </div>
+            </article>
         </form>
         <button id="fin_questionnaire">ENVOYER</button>
     </section>
@@ -74,26 +149,46 @@
 
     <section id="interstice">
         <h1></h1>
+        <p>Cliquez sur suivant pour accéder à la vidéo.</p>
         <button id="suivant_interstice">SUIVANT</button>
     </section>
 
     <section id="qoe">
         <h1>Comment jugez vous la qualité choisie ?</h1>
-        <ul class="likert">
-            <li>Très mauvaise</li>
-            <li><input type="radio" name="qoe" value="1" /></li>
-            <li><input type="radio" name="qoe" value="2" /></li>
-            <li><input type="radio" name="qoe" value="3" /></li>
-            <li><input type="radio" name="qoe" value="4" /></li>
-            <li><input type="radio" name="qoe" value="5" /></li>
-            <li>Excellente</li>
-        </ul>
+        <table>
+            <tbody>
+                <tr>
+                    <td>Mauvaise</td>
+                    <td>Faible</td>
+                    <td>Acceptable</td>
+                    <td>Bonne</td>
+                    <td>Excellente</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="qoe" value="1" />
+                    </td>
+                    <td>
+                        <input type="radio" name="qoe" value="2" />
+                    </td>
+                    <td>
+                        <input type="radio" name="qoe" value="3" />
+                    </td>
+                    <td>
+                        <input type="radio" name="qoe" value="4" />
+                    </td>
+                    <td>
+                        <input type="radio" name="qoe" value="5" />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
         <button id="suivant_jugement_qualite">SUIVANT</button>
     </section>
 
     <section id="choix_pur">
-        <!-- Section choix qualite -->
         <h1>Choix de qualité</h1>
+        <p>La qualité que vous venez de visionner est celle cochée par défaut.</p>
         <form id="form_choix_qualite_pur" class="choix_qualite">
             <article>
                 <input type="radio" id="1080_pur" name="quali" value="1080_pur">
@@ -120,6 +215,8 @@
     <section id="choix_ecolo">
         <!-- Section choix qualite -->
         <h1>Choix de qualité</h1>
+        <p>La qualité que vous venez de visionner est celle cochée par défaut.</p>
+
         <form id="form_choix_qualite_ecolo" class="choix_qualite">
             <article>
                 <input type="radio" id="1080_ecolo" name="quali" value="1080_ecolo">

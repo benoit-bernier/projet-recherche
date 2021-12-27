@@ -53,6 +53,12 @@ input[type="radio"] {
     position: relative;
 }
 
+input[type="number"] {
+    margin: .2em;
+    border: 2px solid bisque;
+    border-radius: 5px;
+}
+
 form {
     font-size: 1.2em;
     margin-left: 4em;
@@ -72,4 +78,15 @@ article {
 
 #ecolo {
     color: green;
+}
+
+td {
+    text-align: center;
+    width: 4em;
+    padding-left: .4em;
+    padding-right: .4em;
+}
+
+td input {
+    vertical-align: middle;
 }

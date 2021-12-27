@@ -163,7 +163,7 @@ function suivant_qoe() {
 }
 
 function start_timer() {
-    const departMinutes = .2 //plutôt 5 à 10 minutes
+    const departMinutes = 5 //plutôt 5 à 10 minutes
     let temps = departMinutes * 60
 
     const timerElement = document.getElementById("timer")
@@ -190,9 +190,15 @@ function hide_everything() {
 
 async function send(data) {
     //chopper infos questionnaire d'abord
+    donnees.birth = document.getElementById("birth").value
+    donnees.genre = document.getElementById("genre").value
+    donnees.connaissances_video = document.querySelector('input[name="connaissances_video"]:checked').value
+    donnees.numerique_environnement = document.querySelector('input[name="num_envt"]:checked').value
+    donnees.ins = document.getElementById("ins").value
+    console.log(donnees)
     await putToAPI("http://localhost:3000/save_data", data)
     hide_everything()
-    document.querySelector("body").innerHTML = "<h1>Merci !</h1>"
+    document.querySelector("body").innerHTML = "<h1>L'expérimentation est terminée, merci !</h1>"
 }
 
 async function putToAPI(url, json_data) {
