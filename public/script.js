@@ -34,7 +34,9 @@ function load_video_extract() {
     }
     if (video_to_play) {
         let html_video = document.getElementById("video_extrait_display")
-        html_video.innerHTML = ` <source src=\"videos\\${video_to_play + "_extract.mp4"}\" type=\"video/mp4\"> \n Désolé, votre navigateur ne supporte pas le lecteur vidéo`
+        console.log("video extrait :", video_to_play)
+        html_video.src = `videos/${video_to_play}_extract.mp4`
+        html_video.load()
         document.getElementById("video_extrait").style.display = "block"
     } else {
         load_talon()
@@ -47,7 +49,8 @@ function load_video_full() {
     video_to_play = `${video_to_play.substring(0, 3) + convert_video_to_play_to_digit(chosen_q)}`
     if (video_to_play) {
         let html_video = document.getElementById("video_full_display")
-        html_video.innerHTML = `<source src=\"videos\\${video_to_play + ".mp4"}\" type=\"video/mp4\"> \n Désolé, votre navigateur ne supporte pas le lecteur vidéo`
+        html_video.src = `videos/${video_to_play}.mp4`
+        html_video.load()
         document.getElementById("video_full").style.display = "block"
     } else {
         load_talon()
