@@ -1,0 +1,49 @@
+{
+    "choix": [
+        "576_ecolo",
+        "1080_ecolo",
+        "720_ecolo",
+        "576_ecolo",
+        "1080_pur",
+        "1080_pur",
+        "576_pur",
+        "720_pur",
+        "720_pur"
+    ],
+    "qoe": [
+        "2",
+        "4",
+        "5",
+        "2",
+        "4",
+        "5",
+        "1",
+        "3",
+        "4"
+    ],
+    "user_id": 15,
+    "ordre": {
+        "interface": [
+            2,
+            1
+        ],
+        "video_IA_order": [
+            "V2Q3",
+            "V3Q1",
+            "V1Q2",
+            "V3Q3"
+        ],
+        "video_IB_order": [
+            "V1Q1",
+            "V2Q1",
+            "V1Q3",
+            "V3Q2",
+            "V2Q2"
+        ]
+    },
+    "birth": "1997",
+    "genre": "femme",
+    "connaissances_video": "3",
+    "numerique_environnement": "3",
+    "ins": "D"
+}

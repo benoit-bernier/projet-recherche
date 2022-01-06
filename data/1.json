@@ -1,0 +1,34 @@
+{
+    "choix": [
+        "720_ecolo",
+        "720_ecolo",
+        "1080_ecolo",
+        "1080_ecolo",
+        "576_pur",
+        "576_pur",
+        "720_pur",
+        "1080_pur",
+        "576_pur"
+    ],
+    "qoe": [],
+    "user_id": 1,
+    "ordre": {
+        "interface": [
+            2,
+            1
+        ],
+        "video_IA_order": [
+            "V3Q2",
+            "V1Q2",
+            "V3Q1",
+            "V2Q1"
+        ],
+        "video_IB_order": [
+            "V2Q3",
+            "V3Q3",
+            "V2Q2",
+            "V1Q1",
+            "V1Q3"
+        ]
+    }
+}
