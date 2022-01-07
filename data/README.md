@@ -1,4 +1,5 @@
-Exclude 1, 2, 3, 14, 15
+Exclude 1, 2, 3, --> construction de l'appli, testeurs
+9, 14, 15 --> mauvaise compréhension des consignes
 
 # Data structure
 ## ordre.interface
